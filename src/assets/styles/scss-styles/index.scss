@@ -27,7 +27,8 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: "Verdana", "Arial", serif;
+  font-family: "AzbokaFont", "Verdana", "Arial", sans-serif;
+  font-weight: 400;
   color: white;
   font-size: 1.875rem;
   background-color: #192A47;
@@ -47,6 +48,12 @@ canvas {
   padding: 6vh 0;
 }
 
+.resultscreen {
+  width: 100%;
+  height: 100%;
+  padding: 3vh 0 1.5vh;
+}
+
 .container {
   max-width: 816px;
   margin: 0 auto;
@@ -55,7 +62,7 @@ canvas {
   flex-direction: column;
   align-items: center;
   @media (min-width: 1921px) {
-    max-width: 50%;
+    max-width: unset;
   }
 }
 
@@ -86,7 +93,7 @@ canvas {
 
 .header {
   margin: 0;
-  margin-top: 5vh;
+  margin-top: 4.5vh;
   max-width: 50vw;
   font-size: 7vh;
   font-weight: normal;
@@ -100,65 +107,23 @@ canvas {
   }
   @media (min-width: 1921px) {
     max-width: unset;
-    // min-width: 900px;
+    // margin-top: 48px;
+    // font-size: 70px;
   }
+}
+
+.result-header {
+  margin-top: 2.5vh;
 }
 
 .description {
-  font-weight: normal;
   margin-top: 3.7vh;
   margin-bottom: 5vh;
   max-width: 48vw;
-  font-size: 2.7vh;
-  line-height: 160%;
-  @media (max-width: $mediaDesktop) {
-    max-width: 60vw;
-  }
-  @media (max-width: $mediaTablet) {
-    max-width: 80vw;
-  }
-  @media (max-width: $mediaMobile) {
-    max-width: 90vw;
-    font-size: 1.6rem;
-  }
-}
-
-.button-block {
-  margin-bottom: 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 7vmin;
-  max-width: 50vw;
-  text-align: center;
-  background: rgba(45, 59, 91, 0.45);
-  backdrop-filter: blur(54px);
-  /* Note: backdrop-filter has minimal browser support */
-  border-radius: 25px;
-  @media (max-width: $mediaDesktop) {
-    max-width: 60vw;
-  }
-  @media (max-width: $mediaTablet) {
-    max-width: 80vw;
-  }
-  @media (max-width: $mediaMobile) {
-    max-width: 90vw;
-  }
-}
-
-.result-block {
-  padding: 5vmin;
-  min-width: 750px;
-  @media (max-width: $mediaDesktop) {
-    min-width: auto;
-  }
-}
-
-.game-desc {
-  max-width: 40vw;
-  font-size: 2.7vh;
-  line-height: 150%;
-  margin-bottom: 5vh;
+  max-width: 600px;
+  font-weight: normal;
+  font-size: 3vh;
+  line-height: 1.2;
   @media (max-width: $mediaDesktop) {
     max-width: 60vw;
   }
@@ -170,16 +135,116 @@ canvas {
     font-size: 1.6rem;
   }
   @media (min-width: 1921px) {
-    width: 70%;
+    max-width: 48vw;
+  }
+}
+
+.result-description {
+  line-height: 120%;
+}
+
+.button-block {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7vmin;
+  max-width: 50vw;
+  // min-height: 420px;
+  text-align: center;
+  background: #124F2E;;
+  border-radius: 50px;
+  border: 5px solid #5ACD37;
+  @media (max-width: $mediaDesktop) {
+    max-width: 60vw;
+  }
+  @media (max-width: $mediaTablet) {
+    max-width: 80vw;
+  }
+  @media (max-width: $mediaMobile) {
+    max-width: 90vw;
+  }
+  // @media (min-width: 1921px) {
+  //   max-width: 816px;
+  // }
+  .start-btn {
+    margin-top: 3vh;
+    // text-transform: uppercase;
+  }
+  &__back {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // left: 50%;
+    // transform: translateX(-50%);
+    img {
+      width: 100%;
+    }
+    overflow: hidden;
+  }
+}
+
+
+
+.result-block {
+  padding: 3vmin;
+  margin-bottom: 2vh;
+
+  .game-desc {
+    margin-bottom: 3vh;
+  }
+
+  // min-width: 750px;
+  @media (max-width: $mediaDesktop) {
+    min-width: auto;
+  }
+}
+
+.game-desc {
+  position: relative;
+  z-index: 100;
+  max-width: 40vw;
+  font-size: 3vh;
+  line-height: 1.2;
+  margin-bottom: 3vh;
+  @media (max-width: $mediaDesktop) {
+    max-width: 60vw;
+  }
+  @media (max-width: $mediaTablet) {
+    max-width: 80vw;
+  }
+  @media (max-width: $mediaMobile) {
+    max-width: 90vw;
+    font-size: 1.6rem;
+  }
+  @media (min-width: 1921px) {
+    // width: 70%;
+    font-size: 3vh;
+    // font-size: 30px;
+    // margin-bottom: 50px;
   }
 }
 
 .prize {
   display: block;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
+}
+
+.result-desc {
+  margin-top: 2vh;
+  font-size: 2.5vh;
+  color: rgba(116, 192, 81, 1);
 }
 
 .small-text {
+  position: relative;
+  z-index: 100;
+  width: 85%;
   font-weight: 400;
   font-size: 1.3rem;
   line-height: 130%;
@@ -198,37 +263,41 @@ canvas {
 }
 
 .btn {
-  padding: 26px 106px;
+  position: relative;
+  z-index: 100;
+  padding: 24px 5vw 30px;
   display: flex;
   align-self: center;
   align-items: center;
   justify-content: center;
   height: 8vh;
-  // height: 87px;
   max-width: 320px;
   border: none;
   border-radius: 5px;
-  background-color: #63C635;
+  background-color: #7ECC2A;
   text-decoration: none;
   font-weight: 700;
-  font-size: 2.5vh;
+  font-size: 2.7vh;
   line-height: 1;
-  color: #1E1A0F;
+  color: white;
   transition: background-color 300ms ease-in-out;
   &:hover {
     background-color: #80F14B;
+    color: #114B2C;
   } 
   &:focus {
     background-color: #289E00;
+    color: white;
   }
   &:active {
     background-color: #289E00;
+    color: white;
   }
   @media (max-width: $mediaMobile) {
-    max-width: 80vw;
+    max-width: 70vw;
   }
   @media (min-width: 1921px) {
-    max-width: unset;
+    width: unset;   
   }
 }
 
@@ -241,10 +310,32 @@ canvas {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
+  .btn {
+    width: 320px;
+    &:first-child {
+      margin-right: 20px;
+    }
+    @media (min-width: 1921px) {
+      min-width: 320px;
+      width: auto;
+    }
+  }
+
   @media (max-width: $mediaDesktop) {
+    .btn {
+      &:first-child {
+        margin-right: 0;
+      }
+    }
     flex-direction: column;
     align-items: center;
+  }
+  @media (max-width: $mediaMobile) {
+    .btn {
+      width: 90%;
+    }
   }
 }
 
@@ -305,16 +396,29 @@ canvas {
 }
 
 .coupon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // width: 100%;
   font-style: normal;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 2.5vh;
   line-height: 1;
   text-transform: uppercase;
-  color: #242E46;
+  color: white;
   background-color: #50A42A;
-  padding: 15px;
+  min-width: 200px;
+  height: 65px;
+  // padding: 15px 70px;
   border-radius: 5px;
   border: 2px dashed white;
   // max-width: 80%;
+  @media (max-width: 1200px) {
+    // padding: 15px 60px;
+  }
+  @media (min-width: 1921px) {
+    padding: 15px;
+    width: auto;
+  }
 }

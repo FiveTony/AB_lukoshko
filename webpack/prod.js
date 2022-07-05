@@ -12,7 +12,7 @@ module.exports = {
     context: path.resolve(__dirname, '../src'),
     mode: 'production',
     entry: {
-        main: path.resolve(__dirname, '../index.js')
+        main: path.resolve(__dirname, '../prod/index.js')
     },
     devtool: false,
     performance: {
@@ -31,7 +31,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../index.html'),
+            template: path.resolve(__dirname, '../prod/index.html'),
             minify: {
                 collapseWhitespace: true // постоянно оптимизирован, если true
             }
@@ -46,6 +46,18 @@ module.exports = {
         }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist/**/*')]
+        }),
+        new CopyWebpackPlugin({
+          patterns: [
+            {
+              from: path.resolve(__dirname, "../src/assets/results/app.js"),
+              to: path.resolve(__dirname, "../dist/results/app.js"),
+              globOptions: {
+                ignore: ["*.DS_Store"],
+              },
+              noErrorOnMissing: true,
+            },
+          ],
         }),
         new CopyWebpackPlugin({
           patterns: [

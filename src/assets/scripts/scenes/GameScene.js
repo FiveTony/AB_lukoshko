@@ -5,8 +5,8 @@ import UI_elements from "../classes/UI_elements";
 import App from "../lib/app"
 
 const app = new App()
-const LEFT_LIMIT = 35;
-const RIGHT_LIMIT = 500 - 35;
+const LEFT_LIMIT = 55;
+const RIGHT_LIMIT = 500 - 55;
 const HEARTS_MIN = 0;
 
 const IS_BACKGROUND_DYNAMIC = true
@@ -224,27 +224,8 @@ export default class GameScene extends Phaser.Scene {
     if (this.score >= MAX_SCORE) {
       if (!this.mute) this.win_game_sound.play()
       this.onVictory();
-      // this.scene.stop();
     }
     target.setAlive(false);
-  }
-  onDefeat() {
-    console.log("OnDEFEAT _ level_end")
-    try {
-      gtag("event", "level_end", {success: false});
-      gtag("event", "post_score", { score: this.score });
-    } catch (error) {}
-    try {
-      app.push("game", "end", {"score": this.score})
-    } catch (error) {}
-    
-    this.scene.restart()
-    this.scene.stop();
-    this.scene.start("PopupComplete", {
-      score: this.score,
-      hearts: this.hearts,
-      status: "lose",
-    });
   }
   onPause() {
     this.ui.play.on("pointerdown", () => {
@@ -336,7 +317,6 @@ export default class GameScene extends Phaser.Scene {
   }
   onVictory() {
     this.scene.stop();
-    // this.scene.restart()
 
     // try {
     //   gtag("event", "level_end", {success: true});
@@ -346,11 +326,29 @@ export default class GameScene extends Phaser.Scene {
     //   app.push("game", "end", {"score": this.score})
     // } catch (error) {}
     localStorage.setItem("complete", true)
-    this.scene.stop();
     this.scene.start("PopupComplete", {
       score: this.score,
       hearts: this.hearts,
       status: "win",
+    });
+  }
+  onDefeat() {
+    // try {
+    //   gtag("event", "level_end", {success: false});
+    //   gtag("event", "post_score", { score: this.score });
+    // } catch (error) {}
+    // try {
+    //   app.push("game", "end", {"score": this.score})
+    // } catch (error) {}
+    
+    this.scene.stop();
+
+    console.log(this.scene.manager.getScenes(), this.scene.get("Game"))
+
+    this.scene.start("PopupComplete", {
+      score: this.score,
+      hearts: this.hearts,
+      status: "lose",
     });
   }
 }

@@ -1,6 +1,6 @@
 const VELOCITY = 500;
-const LEFT_LIMIT = 35;
-const RIGHT_LIMIT = 500 - 35;
+const LEFT_LIMIT = 55;
+const RIGHT_LIMIT = 500 - 55;
 
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, frame, config) {
@@ -12,8 +12,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.body.enable = true;
-
-    // this.right_limit = 
 
     this.setScale(this.config.playerScale);
     this.scene.events.on("update", this.update, this);

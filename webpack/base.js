@@ -11,7 +11,7 @@ module.exports = {
   mode: "development",
   devtool: "eval-source-map", // сборка : самая медленная, пересборка : хорошо
   entry: {
-    entry: ["babel-polyfill", "../index.js"],
+    entry: ["babel-polyfill", "../prod/index.js"],
   },
   devServer: {
     port: 8080,
@@ -21,7 +21,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "../index.html",
+      template: "../prod/index.html",
+    }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, "../dist/results/index.html"),
+      template: '../src/assets/results/index.html',
     }),
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({

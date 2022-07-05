@@ -43,7 +43,7 @@ export default class LoadingBar {
   }
   createText() {
     this.playText = this.scene.add.text(this.scene.game.config.width / 2, 342, 'Подождите...', {
-      font: '32px AzbokaFont'
+      font: 'bold 32px AzbokaFont'
   }).setOrigin(0.5).setTint(0x124F2E)
   }
 }

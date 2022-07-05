@@ -26,7 +26,7 @@ export default class PopupCompleteScene extends Phaser.Scene {
     }
     createBackground() {
         var bg = this.add.graphics()
-        bg.fillStyle(0x0B081A, 0.8)
+        bg.fillStyle(0x9ED081, 0.8)
         bg.fillRect(0, 0, this.game.config.width, this.game.config.height)
         this.stars = this.add.tileSprite(0, 0, this.game.config.width, this.game.config.height, 'stars').setOrigin(0)
     }

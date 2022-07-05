@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "third_planet",
   "main": "index.js",
-  "homepage": "https://fivetony.github.io/AB_lukoshko/",
+  "homepage": "https://andrewarkov.github.io/AB-the-mystery-of-the-third-planet/",
   "scripts": {
     "build": "webpack --config webpack/prod.js",
     "start": "webpack serve --config webpack/base.js --open",

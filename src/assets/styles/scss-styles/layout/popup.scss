@@ -21,10 +21,11 @@
     padding: 36px 50px 50px;
     width: 822px;
     height: 621px;
-    background-color: #63C635;
-    border-radius: 25px;
+    background-color: #114B2C;
+    border-radius: 50px;
+    border: 5px solid #5ACD37;
 
-    @media (max-width: 822px) {
+    @media (max-width: 850px) {
       width: 100%;
       padding: 3.6vh 5vw 5vh;
     }
@@ -32,13 +33,13 @@
 
   &__back {
     position: absolute;
-    width: 822px;
     overflow: hidden;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     img {
-      margin-left: -56px;
-      @media (max-width: 860px) {
-        // width: 150%;  
-      }
+      width: 100%;
     }
   }
 
@@ -50,7 +51,7 @@
     width: 56px;
     height: 56px;
     border-radius: 100%;
-    background-color: #7BBA34;
+    background-color: #1E6840;
     transition: background-color 300ms ease-in-out;
     @media (max-width: 460px) {
       width: 32px;
@@ -89,7 +90,7 @@
     text-align: center;
     img {
       width: 300px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       @media (max-width: 860px) {
         width: 50%;
         margin-bottom: 3vh;
@@ -133,14 +134,14 @@
       margin-bottom: 2.5vh;
     }
     @media (max-width: 460px) {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
 
   &__desc {
     width: 550px;
     @media (max-width: 860px) {
-      width: auto;
+      width: 80%;
     }
   }
 
@@ -167,14 +168,14 @@
     align-items: center;
     justify-content: space-between;
     @media (max-width: 860px) {
-      margin-top: 6vh;
+      margin-top: 3vh;
     }
     @media (max-width: 460px) {
       flex-direction: column;
       margin-top: 0;
     }
     .btn {
-      width: 320px;
+      width: 310px;
       height: 87px;
       padding: 26px 43px;
       font-size: 27px;

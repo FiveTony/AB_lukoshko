@@ -10,6 +10,7 @@
   if (a.get('debug') === 'true') gtag('config', 'G-E8F42W186X',{'debug_mode': true});
   gtag('config', 'G-E8F42W186X');
 </script>
+<!-- <script src="app.js" ></script> -->
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Курс на пикник</title>
 <meta
@@ -37,7 +38,7 @@
 </script>
 </head>
 <body>
-<main class="main startscreen" id="main-landing">
+<main class="main resultscreen" id="main-landing">
   <picture>
     <source type="image/jpg" srcset="
     ../src/assets/images/back-first@1x.jpg 1x,
@@ -55,38 +56,42 @@
   <div class="container">
     <a class="logo" target="_blank" href="https://av.ru/">
       <img src="../src/assets/images/svg/logo.svg" alt="Азбука вкуса">
-      <!-- <img src="../src/assets/images/svg/logo.svg" alt="Азбука вкуса"> -->
     </a>
-    <h1 class="header">
-    Блестящий результат!
+    <h1 class="header result-header">
+    Отлично<br>справились!
     </h1>
-    <div class="description">
-      Примите благодарность за&nbsp;великолепный пикник от&nbsp;межгалактических друзей!
+    <div class="description result-description">
+      А&nbsp;пока мы&nbsp;готовим пирог, примите благодарность за&nbsp;помощь!
     </div>
     <div class="button-block result-block">
+      <div class="button-block__back">
+          <img src="../src/assets/images/form-res@2x.png" alt="back">
+      </div>
       <div class="game-desc">
         <span class="prize">
           Ваш приз:
         </span>      
-        Промокод на&nbsp;скидку&nbsp;20% на&nbsp;товары из&nbsp;<a class="text-link" target="_blank" href="https://av.ru/collections/SPACEPICNIC20">специальной коллекции</a>.<br>Скопируйте его, чтобы не потерять!
+        Промокод на&nbsp;скидку&nbsp;20% на&nbsp;товары<br>из&nbsp;<a class="text-link" target="_blank" href="https://av.ru/collections/berries20">специальной коллекции</a>.
+        <div class="result-desc">
+          Скопируйте его, чтобы не потерять!
+        </div>
       </div>
       <div class="buttons-result">
         <div class="btn btn-coupon">
           <img class="back" src="../src/assets/images/svg/promo-btn.svg" alt="back">
-          <!-- <img class="back" src="../src/assets/images/svg/promo-btn.svg" alt="back"> -->
-          <span class="coupon">SPACEPICNIC20</span>
+          <span class="coupon">berries20</span>
         </div>
-        <a href="https://av.ru/collections/SPACEPICNIC20" target="_blank" class="btn btn-transparent underline">За&nbsp;покупками!</a>
+        <a href="https://av.ru/collections/berries20" target="_blank" class="btn btn-transparent">Применить</a>
       </div>
       <div class="small-text">
-        Промокод даёт право на&nbsp;скидку&nbsp;20% только при совершении онлайн-заказов в&nbsp;интернет-магазине <a class="link" target="_blank" href="https://av.ru/">av.ru</a>. Промокод действует до&nbsp;23.06.2022&nbsp;включительно. Скидка распространяется только на&nbsp;товары из&nbsp;<a class="text-link" target="_blank" href="https://av.ru/collections/SPACEPICNIC20">специальной коллекции</a>. Скидка по&nbsp;промокоду не&nbsp;суммируется с&nbsp;другими скидками и&nbsp;промокодами, бонусы по&nbsp;карте &laquo;Вкусомания&raquo; не&nbsp;начисляются.
+        Промокод даёт право на&nbsp;скидку&nbsp;20% только при совершении онлайн-заказов в&nbsp;интернет-магазине <a class="link" target="_blank" href="https://av.ru/">av.ru</a>. Промокод действует до&nbsp;21.07.2022&nbsp;включительно. Скидка распространяется только на&nbsp;товары из&nbsp;<a class="text-link" target="_blank" href="https://av.ru/collections/berries20/">специальной коллекции</a>. Скидка по&nbsp;промокоду не&nbsp;суммируется с&nbsp;другими скидками и&nbsp;промокодами, бонусы по&nbsp;карте &laquo;Вкусомания&raquo; не&nbsp;начисляются.
       </div>
     </div>
   </div>
 
 <script>
   const promo = document.querySelector(".coupon");
-  console.log(promo)
+  // console.log(promo)
   promo.addEventListener("click", () => {
     let tempPromo = promo.innerHTML;
     // console.log(tempPromo);

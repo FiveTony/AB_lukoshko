@@ -39,7 +39,7 @@ export default class StartScene extends Phaser.Scene {
   createAnimation() {
     let text = this.add
       .text(this.width / 2, this.height / 2, "НАЧАТЬ", {
-        font: "40px AzbokaFont",
+        font: "bold 40px AzbokaFont",
         fill: "#124F2E",
       })
       .setOrigin(0.5)
