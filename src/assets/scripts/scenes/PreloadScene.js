@@ -20,7 +20,6 @@ export default class PreloadScene extends Phaser.Scene {
     });
     this.main_theme.play();
 
-    // var loadingBar = new LoadingBar(this);
     var loadingBar = new LoadingBar(
       this,
       this.game.config.width / 2,

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8F42W186X"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  var a = new URLSearchParams(location.search)
-  if (a.get('debug') === 'true') gtag('config', 'G-E8F42W186X',{'debug_mode': true});
-  gtag('config', 'G-E8F42W186X');
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8F42W186X"></script> 
+  <script> 
+  window.dataLayer = window.dataLayer || []; 
+  function gtag(){dataLayer.push(arguments);} 
+  gtag('js', new Date()); 
+  var a = new URLSearchParams(location.search) 
+  if (a.get('debug') === 'true') gtag('config', 'G-E8F42W186X',{'debug_mode': true}); 
+  else gtag('config', 'G-E8F42W186X'); 
+ 
+  if (!localStorage.getItem("complete")) document.location.href = '/' 
+  gtag("event", "unlock_achievement", { achievement_id: "promocode" }); 
+  gtag("event", "promocode", {status: 'show'}); 
 </script>
-<!-- <script src="app.js" ></script> -->
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Курс на пикник</title>
 <meta
@@ -28,14 +31,6 @@
 <meta name="title" content="Тайна третьей планеты" />
 <meta name="keywords" content="" />
 <meta name="description" content="Тайна третьей планеты. А вы готовы к невероятному космическому приключению?" />
-<script>
-  if (!localStorage.getItem("complete")) document.location.href = '/'
-  else {
-    try {
-      gtag("event", "promocode", {});
-    } catch (error) {}
-  }
-</script>
 </head>
 <body>
 <main class="main resultscreen" id="main-landing">

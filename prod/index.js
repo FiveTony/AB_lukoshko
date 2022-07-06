@@ -1,6 +1,4 @@
 import Phaser from "phaser";
-// import Phaser from "../phaser-custom";
-
 import "regenerator-runtime";
 
 import BootScene from "../src/assets/scripts/scenes/BootScene";
@@ -89,18 +87,9 @@ startGame.addEventListener("click", function (e) {
   mainLanding.classList = "show-rotate-block";
   mainLanding.style.display = "none";
 
-  // var WebFont = require("webfontloader");
-  // WebFont.load({
-  //   custom: {
-  //     families: ["BalsamiqSans", "AzbokaFont"],
-  //     urls: [`src/assets/styles/fonts.css`],
-  //   },
-  //   active: function () {
+  
       var game = new Phaser.Game(config);
-  //     },
-  // });
+  
 });
-
-// var game = new Phaser.Game(config);
 
 

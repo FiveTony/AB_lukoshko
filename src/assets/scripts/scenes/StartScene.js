@@ -43,15 +43,15 @@ export default class StartScene extends Phaser.Scene {
         fill: "#124F2E",
       })
       .setOrigin(0.5)
-      .setAlpha(0).setTint(0xF1A901, 0xF1A901, 0xFFE305, 0xFFE305);
-    this.tweens.add({
-      targets: text,
-      alpha: 1,
-      scale: { from: 0.2, to: 1 },
-      ease: "Quart",
-      rotation: 2 * Math.PI,
-      duration: 3000,
-    });
+      .setAlpha(1).setTint(0xF1A901, 0xF1A901, 0xFFE305, 0xFFE305);
+    // this.tweens.add({
+    //   targets: text,
+    //   alpha: 1,
+    //   scale: { from: 0.2, to: 1 },
+    //   ease: "Quart",
+    //   rotation: 2 * Math.PI,
+    //   duration: 3000,
+    // });
   }
   launchGame() {
     this.scene.start("Game", {

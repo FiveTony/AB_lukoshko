@@ -24,13 +24,13 @@ const PLAYER_DATA = {
   "playerScale": 0.7
 }
 const NEGATIVE_DATA = {
-  "frequencyNegative": [1000, 1100],
+  "frequencyNegative": [1100, 1200],
   "maxNegativeOnLevel": 200,
   "isHorizontal": true,
-  "velocity": [250, 300],
+  "velocity": [250, 270],
   "isRotation": true,
   "negativeScale": 0.5,
-  "accelerationFrequency": 0.2
+  "accelerationFrequency": 0.1
 }
 const POSITIVE_DATA = {
   "frequencyPositive": [1100, 1200],
@@ -116,7 +116,9 @@ export default class GameScene extends Phaser.Scene {
     this.object2 = new Positive(this, POSITIVE_DATA);
     this.setDrag();
     this.addOverlap();
-    try {gtag("event", "level_start", {});} catch (error) {}
+
+    console.log("level_start")
+    try {gtag("event", "level_start", { level_name: "first level" });} catch (error) {console.log("level_start, error")}
     try {app.push('game', 'start')} catch (error) { console.log(error)}
   }
   createBackground() {
@@ -316,16 +318,17 @@ export default class GameScene extends Phaser.Scene {
     });
   }
   onVictory() {
-    this.scene.stop();
+    console.log("level_end success: true")
 
-    // try {
-    //   gtag("event", "level_end", {success: true});
-    //   gtag("event", "post_score", { score: this.score });
-    // } catch (error) {}
-    // try {
-    //   app.push("game", "end", {"score": this.score})
-    // } catch (error) {}
+    try {
+      gtag("event", "level_end", {success: true, level_name: "first level" });
+      gtag("event", "post_score", { score: this.score, level: "first level" });
+    } catch (error) {     console.log("ERROR level_end success: true, error")  }
+    try {
+      app.push("game", "end", {"score": this.score})
+    } catch (error) {}
     localStorage.setItem("complete", true)
+    this.scene.stop();
     this.scene.start("PopupComplete", {
       score: this.score,
       hearts: this.hearts,
@@ -333,18 +336,17 @@ export default class GameScene extends Phaser.Scene {
     });
   }
   onDefeat() {
-    // try {
-    //   gtag("event", "level_end", {success: false});
-    //   gtag("event", "post_score", { score: this.score });
-    // } catch (error) {}
-    // try {
-    //   app.push("game", "end", {"score": this.score})
-    // } catch (error) {}
+    console.log("level_end success: false")
+
+    try {
+      gtag("event", "level_end", { success: false, level_name: "first level"});
+      gtag("event", "post_score", { score: this.score, level: "first level" });
+    } catch (error) {console.log(" ERROR level_end success: false")}
+    try {
+      app.push("game", "end", {"score": this.score})
+    } catch (error) {}
     
     this.scene.stop();
-
-    console.log(this.scene.manager.getScenes(), this.scene.get("Game"))
-
     this.scene.start("PopupComplete", {
       score: this.score,
       hearts: this.hearts,
